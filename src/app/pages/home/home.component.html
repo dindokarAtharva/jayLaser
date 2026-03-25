@@ -1,0 +1,159 @@
+<!-- ===== HERO SECTION ===== -->
+<section class="hero">
+  <div class="hero-video-wrap">
+    <img
+      class="hero-video"
+      src="assets/images/hero_white_theme.png"
+      alt="3D CNC Laser Pipe Cutting Background"
+    />
+    <div class="hero-overlay"></div>
+  </div>
+
+  <div class="hero-content container">
+    <span class="hero-eyebrow">Jay Laser &amp; Engineers</span>
+    <h1 class="hero-title">Leader in Precision 3D CNC<br/><span>Laser Pipe Cutting</span></h1>
+    <p class="hero-subtitle">Specialized high-speed tube and pipe processing with unmatched accuracy, complemented by premium 2D sheet metal cutting services.</p>
+    <div class="hero-actions">
+      <a routerLink="/portfolio" class="btn-primary">Explore 3D Pipe Solutions</a>
+      <a routerLink="/contact" class="btn-outline">Contact Us</a>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="scroll-hint">
+    <span class="scroll-line"></span>
+    <span class="scroll-text">Scroll</span>
+  </div>
+</section>
+
+<!-- ===== STATS BAR ===== -->
+<section class="stats-bar">
+  <div class="container stats-grid">
+    @for (stat of stats; track stat.label) {
+      <div class="stat-item">
+        <span class="stat-value">{{ stat.value }}</span>
+        <span class="stat-label">{{ stat.label }}</span>
+      </div>
+    }
+  </div>
+</section>
+
+<!-- ===== ABOUT / INTRO SECTION ===== -->
+<section class="about-section">
+  <div class="container about-grid">
+    <div class="about-text">
+      <span class="section-label">Who We Are</span>
+      <h2 class="section-title">Experienced Laser Cutting &amp; Engineering Company</h2>
+      <p class="about-desc">
+        Jay Laser and Engineers is a leading provider of precision 3D CNC laser cutting services.
+        With a focus on technology and quality, we deliver outstanding results for our clients
+        across automotive, pharmaceutical, FMCG, and industrial sectors.
+      </p>
+      <div class="about-highlights">
+        <div class="highlight-item">
+          <div class="highlight-dot"></div>
+          <div>
+            <h6 class="highlight-title">Leading Laser Cutting Company</h6>
+            <p class="highlight-desc">Trusted by top manufacturers across Pune and Maharashtra.</p>
+          </div>
+        </div>
+        <div class="highlight-item">
+          <div class="highlight-dot"></div>
+          <div>
+            <h6 class="highlight-title">Precision and Quality Guaranteed</h6>
+            <p class="highlight-desc">Cutting-edge technology with an unwavering commitment to excellence.</p>
+          </div>
+        </div>
+      </div>
+      <a routerLink="/services" class="btn-primary">Our Services</a>
+    </div>
+    <div class="about-image-wrap">
+      <img
+        src="assets/images/who_we_are_cut_pipes.png"
+        alt="Precision finished 3D-cut metal pipe samples"
+        class="about-img"
+      />
+      <div class="about-img-badge">
+        <span class="badge-number">10+</span>
+        <span class="badge-label">Years of<br/>Excellence</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICES HIGHLIGHT ===== -->
+<section class="services-section">
+  <div class="container">
+    <div class="services-header">
+      <span class="section-label">What We Do</span>
+      <h2 class="section-title">Precision CNC Laser</h2>
+      <p class="services-subtitle">
+        Delivering high precision and quality laser cutting services for your business needs.
+      </p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-visual">
+        <img
+          src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,h=553,fit=crop/mnl9yn5qW9tMx4R0/generated/generated-A3QJ77J66zHbjMEE.png"
+          alt="Precision CNC Laser"
+          class="service-img"
+        />
+        <div class="service-img-overlay">
+          <a routerLink="/portfolio" class="btn-outline">View Portfolio →</a>
+        </div>
+      </div>
+
+      <div class="service-cards">
+        @for (feature of features; track feature.title) {
+          <div class="service-card" [class.featured]="$index === 0">
+            <div class="service-card-icon">{{ feature.icon }}</div>
+            <div class="service-card-content">
+              <div class="service-card-header">
+                <h6 class="service-card-title">{{ feature.title }}</h6>
+                @if ($index === 0) {
+                  <span class="featured-badge">Featured</span>
+                }
+              </div>
+              <p class="service-card-desc">{{ feature.desc }}</p>
+            </div>
+          </div>
+        }
+        <a routerLink="/contact" class="btn-primary service-cta">Get a Quote</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CUSTOMERS / SLIDESHOW ===== -->
+<section class="customers-section">
+  <div class="container">
+    <span class="section-label">Our Clients</span>
+    <h2 class="section-title">Our Customers</h2>
+    <p class="customers-subtitle">Read what our satisfied customers have to say about our services.</p>
+  </div>
+
+  <div class="customers-scroll-wrap">
+    <div class="customers-track" #customersTrack>
+      @for (customer of customers; track customer.name) {
+        <div class="customer-card">
+          <div class="customer-logo-box">
+            <img [src]="customer.logo" [alt]="customer.name" class="customer-logo" />
+          </div>
+          <h6 class="customer-name">{{ customer.name }}</h6>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA BANNER ===== -->
+<section class="cta-section">
+  <div class="container cta-inner">
+    <div class="cta-text">
+      <h2 class="cta-title">Ready to Start Your Project?</h2>
+      <p class="cta-desc">Contact us today for a custom quote on your laser cutting requirements.</p>
+    </div>
+    <a routerLink="/contact" class="btn-primary cta-btn">Contact Us Today</a>
+  </div>
+</section>

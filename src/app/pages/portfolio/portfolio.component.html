@@ -1,0 +1,117 @@
+<!-- Page Hero -->
+<section class="page-hero">
+  <div class="page-hero-overlay"></div>
+  <div class="container page-hero-content">
+    <span class="section-label">Our Work</span>
+    <h1 class="page-hero-title">Portfolio</h1>
+    <p class="page-hero-subtitle">Explore our precision laser cutting and fabrication projects delivered for clients across industries.</p>
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a routerLink="/" class="breadcrumb-link">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <span class="breadcrumb-current">Portfolio</span>
+    </nav>
+  </div>
+</section>
+
+<!-- Advanced Machinery Section -->
+<section class="machinery-section">
+  <div class="container machinery-container">
+    <div class="machinery-header">
+      <span class="section-label">Advanced Fleet</span>
+      <h2 class="section-title">Our World-Class 3D & 2D Laser Fleet</h2>
+    </div>
+    <div class="machinery-grid">
+      
+      <div class="machine-card">
+        <div class="machine-img-wrap">
+          <img src="assets/images/bystronic_machine.png" alt="BYSTRONIC ByTube 6216" class="machine-img" />
+          <span class="machine-spec-tag">6-Axis Precision</span>
+        </div>
+        <div class="machine-content">
+          <h3 class="machine-title">BYSTRONIC ByTube 6216</h3>
+          <p class="machine-desc">High-end 3D pipe and tube laser cutting system.</p>
+        </div>
+      </div>
+
+      <div class="machine-card">
+        <div class="machine-img-wrap">
+          <img src="assets/images/wilacnc_machine.png" alt="WilaCNC Tube Cutting" class="machine-img" />
+          <span class="machine-spec-tag">High-Speed Processing</span>
+        </div>
+        <div class="machine-content">
+          <h3 class="machine-title">WilaCNC Tube Cutting</h3>
+          <p class="machine-desc">Precision 6-axis mechanical tube handling and processing.</p>
+        </div>
+      </div>
+
+      <div class="machine-card">
+        <div class="machine-img-wrap">
+          <img src="assets/images/trumpf_machine.png" alt="TRUMPF L3030" class="machine-img" />
+          <span class="machine-spec-tag">Laser Precision 2D</span>
+        </div>
+        <div class="machine-content">
+          <h3 class="machine-title">TRUMPF L3030</h3>
+          <p class="machine-desc">High-speed 2D flatbed laser sheet metal processing.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Filter Bar -->
+<section class="portfolio-section">
+  <div class="container">
+    <div class="filter-bar">
+      @for (f of filters; track f) {
+        <button
+          class="filter-btn"
+          [class.active]="activeFilter() === f"
+          (click)="setFilter(f)"
+        >{{ f }}</button>
+      }
+    </div>
+
+    <!-- Grid -->
+    <div class="portfolio-grid">
+      @for (item of filteredItems; track item.title) {
+        <div class="portfolio-item" (click)="openLightbox(item)">
+          <div class="portfolio-img-wrap">
+            <img [src]="item.src" [alt]="item.alt" class="portfolio-img" loading="lazy" />
+            <div class="portfolio-overlay">
+              <div class="portfolio-overlay-inner">
+                <span class="portfolio-category">{{ item.category }}</span>
+                <h3 class="portfolio-item-title">{{ item.title }}</h3>
+                <span class="portfolio-zoom">⊕ View</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox -->
+@if (lightboxOpen()) {
+  <div class="lightbox" (click)="closeLightbox()">
+    <button class="lightbox-close" (click)="closeLightbox()" aria-label="Close">✕</button>
+    <div class="lightbox-content" (click)="$event.stopPropagation()">
+      @if (lightboxItem()) {
+        <img [src]="lightboxItem()!.src" [alt]="lightboxItem()!.alt" class="lightbox-img" />
+        <div class="lightbox-info">
+          <span class="lightbox-category">{{ lightboxItem()!.category }}</span>
+          <h2 class="lightbox-title">{{ lightboxItem()!.title }}</h2>
+        </div>
+      }
+    </div>
+  </div>
+}
+
+<!-- CTA -->
+<section class="portfolio-cta">
+  <div class="container portfolio-cta-inner">
+    <h2 class="portfolio-cta-title">Want a project like this?</h2>
+    <a routerLink="/contact" class="btn-primary">Start a Project</a>
+  </div>
+</section>

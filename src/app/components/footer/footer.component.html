@@ -1,0 +1,74 @@
+<footer class="footer">
+  <!-- Top bar with laser glow -->
+  <div class="footer-glow"></div>
+
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <!-- Brand column -->
+      <div class="footer-brand">
+        <img
+          src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,fit=crop,q=95/mnl9yn5qW9tMx4R0/jay-laser-final-logo-A85M6VMe61IrOeRb.jpg"
+          alt="Jay Laser And Engineers"
+          class="footer-logo"
+        />
+        <p class="footer-tagline">
+          India’s Premier 3D Pipe & 2D Sheet Laser Cutting Specialists.
+        </p>
+        <!-- Newsletter -->
+        <div class="newsletter">
+          <p class="newsletter-label">Subscribe to our newsletter</p>
+          @if (!subscribed) {
+            <div class="newsletter-form">
+              <input
+                type="email"
+                [(ngModel)]="email"
+                placeholder="Your email address"
+                class="newsletter-input"
+                (keyup.enter)="onSubscribe()"
+              />
+              <button class="newsletter-btn" (click)="onSubscribe()">Submit</button>
+            </div>
+          } @else {
+            <p class="subscribed-msg">✓ Thanks for subscribing!</p>
+          }
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <div class="footer-col">
+        <h6 class="footer-col-title">Navigation</h6>
+        <ul class="footer-links">
+          @for (link of navLinks; track link.path) {
+            <li><a [routerLink]="link.path" class="footer-link">{{ link.label }}</a></li>
+          }
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="footer-col">
+        <h6 class="footer-col-title">Contact</h6>
+        <address class="footer-address">
+          <div class="address-item">
+            <span class="address-icon">📍</span>
+            <span>Sr.No.123, Kate Estate, Pune - Nashik Hwy, Infront of Landge Nagar, Sadgurunagar, Bhosari, Pune, Pimpri-Chinchwad, Maharashtra 411039</span>
+          </div>
+          <div class="address-item">
+            <span class="address-icon">✉</span>
+            <a href="mailto:info@jaylaserengineers.com">info&#64;jaylaserengineers.com</a>
+          </div>
+          <div class="address-item">
+            <span class="address-icon">✉</span>
+            <a href="mailto:ghatolgirish@gmail.com">ghatolgirish&#64;gmail.com</a>
+          </div>
+        </address>
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="footer-bottom">
+      <span class="copyright">© {{ currentYear }}. Jay Laser &amp; Engineers. All rights reserved.</span>
+      <span class="footer-divider">|</span>
+      <span class="footer-craft">Precision. Quality. Excellence.</span>
+    </div>
+  </div>
+</footer>

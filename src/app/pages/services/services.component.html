@@ -1,0 +1,112 @@
+<!-- Page Hero -->
+<section class="page-hero">
+  <div class="page-hero-overlay"></div>
+  <div class="container page-hero-content">
+    <span class="section-label">What We Offer</span>
+    <h1 class="page-hero-title">Precision CNC Cutting</h1>
+    <p class="page-hero-subtitle">High precision and outstanding quality services for all your cutting needs.</p>
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a routerLink="/" class="breadcrumb-link">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <span class="breadcrumb-current">Services</span>
+    </nav>
+  </div>
+</section>
+
+<!-- Services List -->
+<section class="services-list">
+  <div class="container">
+    @for (service of services; track service.title; let i = $index) {
+      <div class="service-row" [class.reverse]="i % 2 !== 0">
+        <div class="service-card">
+          <div class="service-img-col">
+            <div class="service-img-wrap">
+              <img [src]="service.image" [alt]="service.title" class="svc-img" />
+              <div class="service-num">{{ '0' + (i + 1) }}</div>
+            </div>
+          </div>
+        <div class="service-text-col">
+          <span class="section-label">Service {{ '0' + (i + 1) }}</span>
+          <h2 class="svc-title">{{ service.title }}</h2>
+          <p class="svc-desc">{{ service.desc }}</p>
+          <div class="svc-tags">
+            @for (tag of service.tags; track tag) {
+              <span class="svc-tag">{{ tag }}</span>
+            }
+          </div>
+          <a routerLink="/contact" class="btn-primary svc-cta">Get a Quote</a>
+        </div>
+        </div>
+      </div>
+    }
+  </div>
+</section>
+
+<!-- Capabilities Section -->
+<section class="capabilities-section">
+  <div class="container cap-inner">
+    <div class="cap-header">
+      <span class="section-label">Technical Specs</span>
+      <h2 class="section-title">Our Cutting Capabilities</h2>
+    </div>
+    
+    <div class="cap-grid">
+      <!-- 3D Pipe Column -->
+      <div class="cap-card">
+        <div class="cap-icon-wrap">
+          <span class="cap-icon">⚙️</span>
+        </div>
+        <h3 class="cap-card-title">3D CNC Pipe Processing</h3>
+        <ul class="cap-list">
+          <li><strong>Max Diameter:</strong> Up to 220mm</li>
+          <li><strong>Max Length:</strong> Up to 6000mm</li>
+          <li><strong>Materials:</strong> Steel, Aluminum, Copper, Brass</li>
+          <li><strong>Profiles:</strong> Round, Square, Rectangular, Oval</li>
+        </ul>
+      </div>
+
+      <!-- 2D Sheet Column -->
+      <div class="cap-card">
+        <div class="cap-icon-wrap">
+          <span class="cap-icon">📐</span>
+        </div>
+        <h3 class="cap-card-title">2D Laser Sheet Cutting</h3>
+        <ul class="cap-list">
+          <li><strong>Max Thickness:</strong> Up to 20mm</li>
+          <li><strong>Bed Size:</strong> 3000mm x 1500mm</li>
+          <li><strong>Materials:</strong> Mild Steel, Stainless Steel, Aluminum</li>
+          <li><strong>Speed:</strong> High-speed automated flying optics</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Process Section -->
+<section class="process-section">
+  <div class="container">
+    <span class="section-label">How It Works</span>
+    <h2 class="section-title">Our Process</h2>
+    <div class="process-grid">
+      @for (step of process; track step.step) {
+        <div class="process-card">
+          <div class="process-step-num">{{ step.step }}</div>
+          <div class="process-connector"></div>
+          <h6 class="process-title">{{ step.title }}</h6>
+          <p class="process-desc">{{ step.desc }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="svc-cta-section">
+  <div class="container svc-cta-inner">
+    <div>
+      <h2 class="svc-cta-title">Have a project in mind?</h2>
+      <p class="svc-cta-desc">Get in touch and let us turn your designs into precision parts.</p>
+    </div>
+    <a routerLink="/contact" class="btn-primary">Contact Us Today</a>
+  </div>
+</section>
